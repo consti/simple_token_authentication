@@ -401,10 +401,10 @@ describe 'Any class which includes SimpleTokenAuthentication::TokenAuthenticatio
     end
   end
 
-  describe 'and which supports the :before_filter hook' do
+  describe 'and which supports the :before_action hook' do
 
     before(:each) do
-      allow(subject).to receive(:before_filter)
+      allow(subject).to receive(:before_action)
     end
 
     # User
@@ -416,7 +416,7 @@ describe 'Any class which includes SimpleTokenAuthentication::TokenAuthenticatio
       end
 
       it 'ensures its instances require user to authenticate from token or any Devise strategy before any action', public: true do
-        expect(subject).to receive(:before_filter).with(:authenticate_user_from_token!, {})
+        expect(subject).to receive(:before_action).with(:authenticate_user_from_token!, {})
         subject.handle_token_authentication_for User
       end
 
@@ -427,7 +427,7 @@ describe 'Any class which includes SimpleTokenAuthentication::TokenAuthenticatio
         end
 
         it 'ensures its instances require user to authenticate from token before any action', public: true do
-          expect(subject).to receive(:before_filter).with(:authenticate_user_from_token, {})
+          expect(subject).to receive(:before_action).with(:authenticate_user_from_token, {})
           subject.handle_token_authentication_for User, options
         end
       end
@@ -469,7 +469,7 @@ describe 'Any class which includes SimpleTokenAuthentication::TokenAuthenticatio
       end
 
       it 'ensures its instances require super_admin to authenticate from token or any Devise strategy before any action', public: true do
-        expect(subject).to receive(:before_filter).with(:authenticate_super_admin_from_token!, {})
+        expect(subject).to receive(:before_action).with(:authenticate_super_admin_from_token!, {})
         subject.handle_token_authentication_for SuperAdmin
       end
 
@@ -480,7 +480,7 @@ describe 'Any class which includes SimpleTokenAuthentication::TokenAuthenticatio
         end
 
         it 'ensures its instances require super_admin to authenticate from token before any action', public: true do
-          expect(subject).to receive(:before_filter).with(:authenticate_super_admin_from_token, {})
+          expect(subject).to receive(:before_action).with(:authenticate_super_admin_from_token, {})
           subject.handle_token_authentication_for SuperAdmin, options
         end
       end
@@ -519,7 +519,7 @@ describe 'Any class which includes SimpleTokenAuthentication::TokenAuthenticatio
         end
 
         it 'ensures its instances require admin to authenticate from token or any Devise strategy before any action', public: true do
-          expect(subject).to receive(:before_filter).with(:authenticate_admin_from_token!, {})
+          expect(subject).to receive(:before_action).with(:authenticate_admin_from_token!, {})
           subject.handle_token_authentication_for SuperAdmin, options
         end
 
@@ -530,7 +530,7 @@ describe 'Any class which includes SimpleTokenAuthentication::TokenAuthenticatio
           end
 
           it 'ensures its instances require admin to authenticate from token before any action', public: true do
-            expect(subject).to receive(:before_filter).with(:authenticate_admin_from_token, {})
+            expect(subject).to receive(:before_action).with(:authenticate_admin_from_token, {})
             subject.handle_token_authentication_for SuperAdmin, options
           end
         end
