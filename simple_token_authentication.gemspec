@@ -15,15 +15,16 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,doc,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
+  s.required_ruby_version = '>= 2.1.0'
 
-  s.add_dependency "actionmailer", ">= 3.2.6", "< 5"
-  s.add_dependency "actionpack", ">= 3.2.6", "< 5"
-  s.add_dependency "devise", "~> 3.2"
+  s.add_dependency "actionmailer", ">= 4.1.0", "< 5.1"
+  s.add_dependency "actionpack", ">= 4.1.0", "< 5.1"
+  s.add_dependency "devise", "4.0.0.pre.dev"
+
 
   s.add_development_dependency "rspec", "~> 3.0"
   s.add_development_dependency "inch", "~> 0.4"
-  s.add_development_dependency "activerecord", ">= 3.2.6", "< 5"
+  s.add_development_dependency "activerecord", ">= 4.1.0", "< 5.1"
   s.add_development_dependency 'mongoid', '>= 3.1.0', '< 5'
-  # this is an Inch dependency, which version I want to restrict to keep Ruby 1.9 compatibility
-  s.add_development_dependency 'tins', '< 1.7.0'
+  s.add_development_dependency 'tins', '>= 1.8.0', '< 1.9.0'
 end
