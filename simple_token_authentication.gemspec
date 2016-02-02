@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "actionmailer", ">= 4.1.0", "< 5.1"
   s.add_dependency "actionpack", ">= 4.1.0", "< 5.1"
-  s.add_dependency "devise", "4.0.0.pre.dev"
+  s.add_dependency "devise"
 
 
   s.add_development_dependency "rspec", "~> 3.0"
